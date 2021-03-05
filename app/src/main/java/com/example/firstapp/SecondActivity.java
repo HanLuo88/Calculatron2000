@@ -203,18 +203,6 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
     ////////////////////////////////////////////////////////////////////////
     //Utility-Methods
-
-    public void endresult(String a)
-    {
-        StringTokenizer tokens = new StringTokenizer(a, "+", true);
-        ArrayList<String> tokensList = new ArrayList<>();
-        while (tokens.hasMoreTokens())
-        {
-            tokensList.add(tokens.nextToken());
-        }
-    }
-
-
     public static String noDoubleOperators(String a)
     {
         ArrayList<Character> chars = new ArrayList<Character>();
@@ -233,12 +221,25 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                     chars.remove(i + 1);
                     i = 0;
                 }
+                if (chars.get(i + 1).equals('+'))
+                {
+                    chars.set(i, '+');
+                    chars.remove(i + 1);
+                    i = 0;
+                }
+
             }
             if (chars.get(i).equals('-'))
             {
                 if (chars.get(i + 1).equals('-'))
                 {
                     chars.set(i, '+');
+                    chars.remove(i + 1);
+                    i = 0;
+                }
+                if (chars.get(i + 1).equals('+'))
+                {
+                    chars.set(i, '-');
                     chars.remove(i + 1);
                     i = 0;
                 }
@@ -388,6 +389,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
     public static double sumresult(String a)
     {
+        a = noDoubleOperators(a);
         if (!(a.contains("+") || a.contains("-")))
         {
             return termResult(a);
