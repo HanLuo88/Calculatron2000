@@ -201,18 +201,6 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
     ////////////////////////////////////////////////////////////////////////
     //Utility-Methods
-
-    public void endresult(String a)
-    {
-        StringTokenizer tokens = new StringTokenizer(a, "+", true);
-        ArrayList<String> tokensList = new ArrayList<>();
-        while (tokens.hasMoreTokens())
-        {
-            tokensList.add(tokens.nextToken());
-        }
-    }
-
-
     public static String noDoubleOperators(String a)
     {
         ArrayList<Character> chars = new ArrayList<Character>();
