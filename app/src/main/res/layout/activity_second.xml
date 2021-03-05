@@ -7,8 +7,8 @@
         android:layout_height="match_parent"
         tools:context=".SecondActivity">
     <TextView
-            android:layout_width="365dp"
-            android:layout_height="50dp" android:id="@+id/term"
+            android:layout_width="355dp"
+            android:layout_height="49dp" android:id="@+id/term"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="20dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="58dp" android:layout_marginBottom="21dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout" android:layout_marginEnd="20dp"
@@ -16,12 +16,14 @@
             app:layout_constraintVertical_bias="0.0"/>
     <LinearLayout
             android:orientation="vertical"
-            android:layout_width="103dp"
-            android:layout_height="241dp"
+            android:layout_width="96dp"
+            android:layout_height="242dp"
             android:id="@+id/linearLayout"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="120dp" android:layout_marginEnd="2dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="224dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp" android:layout_marginStart="15dp"
+            app:layout_constraintStart_toEndOf="@+id/tableLayout2" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="233dp"
+            app:layout_constraintTop_toBottomOf="@+id/term">
         <Button
                 android:text="+"
                 android:layout_width="match_parent"
@@ -39,18 +41,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/div"/>
         <Button
-                android:text="%"
+                android:text="DEL"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/mod"/>
+                android:layout_height="wrap_content" android:id="@+id/del"
+        />
     </LinearLayout>
     <TableLayout
             android:layout_width="263dp"
-            android:layout_height="193dp"
+            android:layout_height="192dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="72dp"
             app:layout_constraintEnd_toStartOf="@+id/linearLayout"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="224dp"
-            android:id="@+id/tableLayout2">
+            android:id="@+id/tableLayout2" android:layout_marginStart="20dp">
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <Button
@@ -105,7 +108,7 @@
                     android:layout_height="wrap_content" android:id="@+id/oppa"/>
             <Button
                     android:text=")"
-                    android:layout_width="wrap_content"
+                    android:layout_width="75dp"
                     android:layout_height="wrap_content" android:id="@+id/clpa"/>
         </TableRow>
     </TableLayout>
@@ -118,15 +121,6 @@
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="44dp"
             android:onClick="changeback" app:layout_constraintHorizontal_bias="0.0"
     />
-    <Button
-            android:text="="
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/eq"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="22dp"
-            app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout" android:layout_marginEnd="197dp"
-            android:layout_marginBottom="140dp" app:layout_constraintBottom_toTopOf="@+id/back"
-    />
     <TextView
             android:text="result"
             android:layout_width="93dp"
@@ -137,18 +131,21 @@
             android:layout_marginBottom="9dp" app:layout_constraintBottom_toTopOf="@+id/term"
             app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.0"/>
     <Button
+            android:text="="
+            android:layout_width="91dp"
+            android:layout_height="49dp" android:id="@+id/eq"
+            android:layout_marginTop="11dp"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout2" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp" android:layout_marginBottom="129dp"
+            app:layout_constraintBottom_toTopOf="@+id/back" app:layout_constraintEnd_toStartOf="@+id/clear"
+            android:layout_marginEnd="8dp" app:layout_constraintVertical_bias="0.0"/>
+    <Button
             android:text="C"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/clear"
-            app:layout_constraintTop_toBottomOf="@+id/tableLayout2" app:layout_constraintStart_toEndOf="@+id/eq"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout" android:layout_marginEnd="109dp"
-            android:layout_marginBottom="140dp" app:layout_constraintBottom_toTopOf="@+id/back"/>
-    <Button
-            android:text="DEL"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/del"
-            app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
-            app:layout_constraintStart_toEndOf="@+id/clear" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="233dp" app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-            android:layout_marginEnd="20dp"/>
+            android:layout_marginTop="11dp"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout2" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/eq" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="222dp" app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+            android:layout_marginEnd="86dp" app:layout_constraintVertical_bias="0.0"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

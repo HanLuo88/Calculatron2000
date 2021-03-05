@@ -40,7 +40,6 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         Button sub = (Button) findViewById(R.id.sub);
         Button mul = (Button) findViewById(R.id.mul);
         Button div = (Button) findViewById(R.id.div);
-        Button mod = (Button) findViewById(R.id.mod);
         Button open = (Button) findViewById(R.id.oppa);
         Button close = (Button) findViewById(R.id.clpa);
         Button cl = (Button) findViewById(R.id.clear);
@@ -62,7 +61,6 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         sub.setOnClickListener(this);
         mul.setOnClickListener(this);
         div.setOnClickListener(this);
-        mod.setOnClickListener(this);
         open.setOnClickListener(this);
         close.setOnClickListener(this);
         cl.setOnClickListener(this);
@@ -84,55 +82,44 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId())
         {
             case R.id.one:
-
                 term = term.concat("1");
                 termview.setText(term);
-                Toast.makeText(this, "Button 1 clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.two:
                 term = term.concat("2");
                 termview.setText(term);
-                Toast.makeText(this, "Button 2 clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.three:
                 term = term.concat("3");
                 termview.setText(term);
-                Toast.makeText(this, "Button 3 clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.four:
                 term = term.concat("4");
                 termview.setText(term);
-                Toast.makeText(this, "Button 4 clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.five:
                 term = term.concat("5");
                 termview.setText(term);
-                Toast.makeText(this, "Button 5 clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.six:
                 term = term.concat("6");
                 termview.setText(term);
-                Toast.makeText(this, "Button 6 clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.seven:
                 term = term.concat("7");
                 termview.setText(term);
-                Toast.makeText(this, "Button 7 clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.eight:
                 term = term.concat("8");
                 termview.setText(term);
-                Toast.makeText(this, "Button 8 clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nine:
                 term = term.concat("9");
                 termview.setText(term);
-                Toast.makeText(this, "Button 9 clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.zero:
                 term = term.concat("0");
                 termview.setText(term);
-                Toast.makeText(this, "Button 0 clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.add:
                 term = term.concat("+");
@@ -165,11 +152,12 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                 resultview.setText("");
                 break;
             case R.id.del:
+                if (term.length() == 0)
+                {
+                    break;
+                }
                 term = term.substring(0, term.length() - 1);
                 termview.setText(term);
-                break;
-            case R.id.mod:
-                //TODO: modulo
                 break;
             case R.id.eq:
                 String tmpterm = term;
