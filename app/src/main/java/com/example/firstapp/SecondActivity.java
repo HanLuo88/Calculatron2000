@@ -385,10 +385,22 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         {
             tokens.add(elemenTokens.nextToken());
         }
+        Double secondToken;
+        double res = 0.0;
         if (tokens.size() < 3)
         {
-            double res = Double.valueOf(a);
-            return res;
+            if (tokens.get(1).contains("*") || tokens.get(1).contains("/"))
+            {
+                secondToken = termResult(tokens.get(1));
+                String a1 = tokens.get(0).concat(String.valueOf(secondToken));
+                res = Double.valueOf(a1);
+                return res;
+            }
+            else
+            {
+                res = Double.valueOf(a);
+                return res;
+            }
         }
 
         String tmp = "";
