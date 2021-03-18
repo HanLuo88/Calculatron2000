@@ -411,7 +411,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         }
 
 
-        double result = Double.valueOf(termResult(tokens.get(0)));
+        double result = termResult(tokens.get(0));
 
         for (int i = 1; i < tokens.size(); i++)
         {
