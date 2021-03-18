@@ -399,19 +399,17 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                 tokens.set(i, tmpstr.concat(tokens.get(i + 1)));
                 tokens.remove(i + 1);
                 i = -1;
+                continue;
             }
-        }
-
-        for (int j = 0; j < tokens.size(); j++)
-        {
-            if (tokens.get(j).equals("+"))
+            if (tokens.get(i).equals("+"))
             {
-                tokens.remove(j);
+                tokens.remove(i);
+                i = -1;
+                continue;
             }
         }
 
-
-        double result = termResult(tokens.get(0));
+        double result = Double.valueOf(termResult(tokens.get(0)));
 
         for (int i = 1; i < tokens.size(); i++)
         {
