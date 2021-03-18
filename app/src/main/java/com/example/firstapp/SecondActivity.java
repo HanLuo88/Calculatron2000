@@ -381,54 +381,41 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         StringTokenizer elemenTokens = new StringTokenizer(a, "+-", true);
 
         ArrayList<String> tokens = new ArrayList<String>();
+
         while (elemenTokens.hasMoreTokens())
         {
             tokens.add(elemenTokens.nextToken());
         }
-        Double secondToken;
-        double res = 0.0;
-        if (tokens.size() < 3)
-        {
-            if (tokens.get(1).contains("*") || tokens.get(1).contains("/"))
-            {
-                secondToken = termResult(tokens.get(1));
-                String a1 = tokens.get(0).concat(String.valueOf(secondToken));
-                res = Double.valueOf(a1);
-                return res;
-            }
-            else
-            {
-                res = Double.valueOf(a);
-                return res;
-            }
-        }
 
-        String tmp = "";
-        double result = 0.0;
-        int index = 1;
-        if (tokens.get(0).equals("-") || tokens.get(0).equals("+"))
+        for (int i = 0; i < tokens.size(); i++)
         {
-            tmp = tmp.concat(tokens.get(0));
-            tmp = tmp.concat(tokens.get(1));
-            result = termResult(tmp);
-            index = 2;
-        }
-        else
-        {
-            result = termResult(tokens.get(0));
-        }
-
-
-        for (int i = index; i < tokens.size(); i = i + 2)
-        {
-            if (tokens.get(i).equals("+"))
-            {
-                result = result + termResult(tokens.get(i + 1));
-            }
             if (tokens.get(i).equals("-"))
             {
-                result = result - termResult(tokens.get(i + 1));
+                String tmpstr = "-";
+                if (tokens.get(i + 1).contains("*") || tokens.get(i + 1).contains("/"))
+                {
+                    tokens.set(i + 1, String.valueOf(termResult(tokens.get(i + 1))));
+                }
+                tokens.set(i, tmpstr.concat(tokens.get(i + 1)));
+                tokens.remove(i + 1);
+                i = -1;
             }
+        }
+
+        for (int j = 0; j < tokens.size(); j++)
+        {
+            if (tokens.get(j).equals("+"))
+            {
+                tokens.remove(j);
+            }
+        }
+
+
+        double result = Double.valueOf(termResult(tokens.get(0)));
+
+        for (int i = 1; i < tokens.size(); i++)
+        {
+            result = result + Double.valueOf(termResult(tokens.get(i)));
         }
         return result;
     }
